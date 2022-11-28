@@ -1,7 +1,9 @@
 #include <iostream>
 #include "math.h"
+using namespace std;
 
 int main() {
-    std::cout << "Hello, World!" << "Here is me" << std::endl;
+    int i =3;
+    cout << "Hello, Wordle \n";
     return 0;
 }
