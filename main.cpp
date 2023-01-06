@@ -1,11 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <vector>
-#include <sstream>
 
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wunknown-escape-sequence"
 using namespace std;
 
 string wordChoosingFunction() {
@@ -50,7 +45,6 @@ void revealWordFunction() {
 
 void fontWordle() {
 
-    system("clear"); //*nix
 
     cout << "    __          __           _ _       \n";
     cout << "    \\ \\        / /          | | |      \n";
