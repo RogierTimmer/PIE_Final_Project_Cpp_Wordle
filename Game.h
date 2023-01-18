@@ -21,6 +21,8 @@ public:
     void fontWordle();
 
     string getWord();
+
+    string correctingFunction();
 };
 
 #endif //FINAL_PROJECT_WORDLE_GAME_H

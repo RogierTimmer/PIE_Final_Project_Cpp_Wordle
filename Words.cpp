@@ -3,8 +3,6 @@
 //
 
 #include "Words.h"
-#include <windows.h>
-#include <random>
 
 Words::Words() {
     importWords();

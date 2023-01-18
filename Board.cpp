@@ -22,3 +22,13 @@ string Board::toString() {
     }
     return s;
 }
+
+void Board::setLine(string input) {
+    char charArray[input.length()];
+    strcpy(charArray,input.c_str());
+
+    for(int i=0 ; i<input.length() ; i++) {
+        fields[line * (DIM_HOR) + i] = charArray[i];
+    }
+    line++;
+}

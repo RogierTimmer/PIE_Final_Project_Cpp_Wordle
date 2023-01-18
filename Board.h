@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <cstring>
 
 using namespace std;
 
@@ -15,11 +16,14 @@ private:
     int DIM_HOR = 5;
     int DIM_VER = 6;
     string fields[5*6];
+    int line = 0;
 
 public:
     Board();
 
     string toString();
+
+    void setLine(string guess);
 
 };
 

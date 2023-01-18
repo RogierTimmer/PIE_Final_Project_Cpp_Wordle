@@ -8,6 +8,9 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <windows.h>
+#include <random>
+
 using namespace std;
 
 class Words {
