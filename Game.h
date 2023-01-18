@@ -8,7 +8,7 @@
 #include <iostream>
 using namespace std;
 
-#include "Board.h"
+#include "Board.cpp"
 
 class Game {
 private:
