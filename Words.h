@@ -2,13 +2,13 @@
 // Created by Rogier on 18/01/2023.
 //
 
+#ifndef FINAL_PROJECT_WORDLE_WORDS_H
+#define FINAL_PROJECT_WORDLE_WORDS_H
+
 #include <iostream>
 #include <fstream>
 #include <vector>
 using namespace std;
-
-#ifndef FINAL_PROJECT_WORDLE_WORDS_H
-#define FINAL_PROJECT_WORDLE_WORDS_H
 
 class Words {
 private:
@@ -25,6 +25,5 @@ public:
 
     string getRandomWord();
 };
-
 
 #endif //FINAL_PROJECT_WORDLE_WORDS_H

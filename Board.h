@@ -23,5 +23,4 @@ public:
 
 };
 
-
 #endif //FINAL_PROJECT_WORDLE_BOARD_H

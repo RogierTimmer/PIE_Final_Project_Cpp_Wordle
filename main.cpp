@@ -2,8 +2,8 @@
 #include <string>
 #include <vector>
 #include <cstring>
-#include "source/Game.h"
-#include "source/Words.h"
+#include "Game.cpp"
+#include "Words.cpp"
 
 using namespace std;
 
@@ -15,8 +15,7 @@ string inputFunction() {
     return guess;
 }
 
-bool checkingInputFunction() {
-    string input;
+bool checkingInputFunction(string input) {
     bool check = true;
     input = "ready";                //TODO placeholder
 
@@ -30,7 +29,6 @@ bool checkingInputFunction() {
         cout << "Not the correct amount of letters \n";
         check = false;
     }
-
 
     return check;
 }
@@ -46,8 +44,10 @@ string correctingFunction() { //function should have as input the guess of the u
 //    char* char_array_userInput = new char[length + 1];
 //    strcpy(char_array_userInput,userInput.c_str());
 
-    char* char_array_finalWord = new char[length +1];
-    strcpy(char_array_finalWord,finalWord.c_str());
+    const char* char_array_finalWord = finalWord.c_str();
+
+//    char* char_array_finalWord = new char[length +1];
+//    strcpy(char_array_finalWord,finalWord.c_str());
 
     char* copy_word = new char[length +1];
     strcpy(copy_word,finalWord.c_str());
@@ -64,7 +64,7 @@ string correctingFunction() { //function should have as input the guess of the u
             correction[i] = g;
             copy_word[i] = 0;
         }
-        cout << correction[0] << correction[5] << " correction point after green \n";
+        cout << correction[0] << correction[4] << " correction point after green \n";
         k = 0;
         for (int j = 0 ; i < 5; i++) {
             if (char_array_finalWord[i]==char_array_userInput[j]) { //checks for the letters that are not in the word (red)

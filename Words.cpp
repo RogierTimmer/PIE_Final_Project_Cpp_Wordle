@@ -3,7 +3,7 @@
 //
 
 #include "Words.h"
-#include <Windows.h>
+#include <windows.h>
 #include <random>
 
 Words::Words() {
