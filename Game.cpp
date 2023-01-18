@@ -24,19 +24,16 @@ void Game::fontWordle() {
     cout << "        \\/  \\/ \\___/|_|  \\__,_|_|\\___| \n";
     cout << "\n";
     cout << "A wordle game in C++, created by Trui en Frans 2023 \n"; //TODO fix names
-
-    board.setLine("wordl");
-
-    cout << board.toString();
 }
 
 string Game::getWord() {
     return word;
 }
 
-string Game::correctingFunction() { //function should have as input the guess of the user and the final word.
-    string userInput = "rally"; //TODO fix that the user-input is actually here
-    string finalWord = "ready"; //TODO fix that the final word is actually here
+char* Game::correctingFunction(string guess, string word, char *emptyArray) { //function should have as input the guess of the user and the final word.
+    string userInput = guess;
+    string finalWord = word;
+
 
     int length = 5;
 
@@ -55,7 +52,7 @@ string Game::correctingFunction() { //function should have as input the guess of
     char r = 'r';
     char null = '0';
 
-    char correction[6] = {0,0,0,0,0}; //Array to store the correction scheme
+    char* correction = emptyArray;
 
     for (int  i = 0; i < 5; i++) {
         if (char_array_userInput[i] == char_array_finalWord[i]) { //checks for correct letters on the correct place (green)
@@ -89,5 +86,48 @@ string Game::correctingFunction() { //function should have as input the guess of
         }
     }
     correction[5] = '\0';
-    return string(correction);
+    return correction;
+}
+
+string Game::inputFunction() {
+    string guess;
+    cout << "Guess: ";
+    cin >> guess;
+
+    return guess;
+}
+
+bool Game::checkingInputFunction(string input) {
+    bool check = true;
+    input = input;
+    const int length = input.length();
+
+    if (length != 5) {
+        cout << "Not the correct amount of letters \n";
+        check = false;
+    }
+    return check;
+}
+
+void Game::play() {
+    bool run = true;
+    cout << board.toString() << "\n";
+    while (run) {
+        string guess = "";
+        while (true) {
+            guess = inputFunction();
+            if (checkingInputFunction(guess)) {
+                break;
+            }
+        }
+        char emptyArray[5];
+        char* corrected = correctingFunction(guess, word, emptyArray);
+        board.setLine(guess);
+        cout << board.toString() << "\n";
+        turn++;
+        if (turn > 5) {
+            run = false;
+            cout << "Game Over" << "\n";
+        }
+    }
 }

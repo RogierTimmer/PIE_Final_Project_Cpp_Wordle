@@ -14,6 +14,7 @@ class Game {
 private:
     Board board;
     string word;
+    int turn = 0;
 
 public:
     Game(string word);
@@ -22,7 +23,13 @@ public:
 
     string getWord();
 
-    string correctingFunction();
+    char* correctingFunction(string guess, string word, char *emptyArray);
+
+    string inputFunction();
+
+    bool checkingInputFunction(string input);
+
+    void play();
 };
 
 #endif //FINAL_PROJECT_WORDLE_GAME_H

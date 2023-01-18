@@ -50,7 +50,7 @@ int main() {
     Words words;
     Game game(words.getRandomWord());
     game.fontWordle();
-
+    game.play();
     cout << "You guessed correct: " + game.getWord() << "\n";
     return 0;
 }
