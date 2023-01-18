@@ -4,6 +4,7 @@
 #include <cstring>
 #include "Game.cpp"
 #include "Words.cpp"
+#include <bits/stdc++.h>
 
 using namespace std;
 
