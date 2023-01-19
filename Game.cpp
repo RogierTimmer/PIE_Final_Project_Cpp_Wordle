@@ -6,8 +6,8 @@
 
 using namespace std;
 
-Game::Game(string word) {
-    this->word = word;
+Game::Game() {
+    this->word = words.getRandomWord();
 }
 
 Board makeBoard() {
@@ -98,15 +98,20 @@ string Game::inputFunction() {
 }
 
 bool Game::checkingInputFunction(string input) {
-    bool check = true;
-    input = input;
-    const int length = input.length();
+    int length = input.length();
 
     if (length != 5) {
         cout << "Not the correct amount of letters \n";
-        check = false;
+        return false;
     }
-    return check;
+
+    for (int i = 0; i < words.getWords().size(); i++) {
+        if (input == words.getWord(i)) {
+            return true;
+        }
+    }
+    cout << "Please enter a word that exists \n";
+    return false;
 }
 
 bool Game::isWinner(char* correction) {
@@ -129,12 +134,15 @@ void Game::play() {
                 break;
             }
         }
-        char emptyArray[5];
+        char emptyArray[6];
         char* corrected = correctingFunction(guess, word, emptyArray);
+        for (int i = 0; i < 6; i++) {
+            cout << corrected[i];
+        }
         board.setLine(guess, corrected);
         board.print();
         if (isWinner(corrected)) {
-            cout << "Congratulations, you have guessed the word in " << turn << " turns!" << "\n";
+            cout << "Congratulations, you have guessed the word in " << turn  << " turns!" << "\n";
         }
         turn++;
         if (turn > 5) {

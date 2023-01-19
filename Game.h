@@ -5,19 +5,21 @@
 #ifndef FINAL_PROJECT_WORDLE_GAME_H
 #define FINAL_PROJECT_WORDLE_GAME_H
 
-#include <iostream>
-using namespace std;
-
 #include "Board.cpp"
+#include <iostream>
+#include "Words.h"
+
+using namespace std;
 
 class Game {
 private:
     Board board;
     string word;
-    int turn = 0;
+    int turn = 1;
+    Words words;
 
 public:
-    Game(string word);
+    Game();
 
     void fontWordle();
 
@@ -25,11 +27,11 @@ public:
 
     char* correctingFunction(string guess, string word, char *emptyArray);
 
-    string inputFunction();
+    static string inputFunction();
 
     bool checkingInputFunction(string input);
 
-    static bool isWinner(char* correction);
+    bool isWinner(char* correction);
 
     void play();
 };
