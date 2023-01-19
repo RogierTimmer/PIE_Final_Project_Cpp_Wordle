@@ -1,5 +1,5 @@
+//
 // Is responsible for the user-interface of the board part of the game
-// Created by Rogier on 18/01/2023.
 //
 
 #ifndef FINAL_PROJECT_WORDLE_BOARD_H

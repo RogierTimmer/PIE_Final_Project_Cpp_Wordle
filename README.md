@@ -1,5 +1,6 @@
 # PIE_Final_Project_Cpp_Wordle
 This is the repository for the final project of PIE at the University of Twente. In this project a wordle game is made in C++
+The creators of this program are: Jochem Schuerman en Rogier Timmer
 
 # Install
 In order to install this program, build it using cmake and run it
@@ -19,7 +20,7 @@ the game can be adapted to support 6, 7 or more letter words. Another improvemen
 final outcome words and a list for words that are valid as input-words.
 
 # Dependencies
-The code relies on color.hpp in order to make the colored text in the terminal. Furthermore standard libraries included with...
+The code relies on color.hpp in order to make the colored text in the terminal (https://github.com/aafulei/color-console). Furthermore standard libraries included with...
 C++ were used like vector and iostream.
 
 # Final note

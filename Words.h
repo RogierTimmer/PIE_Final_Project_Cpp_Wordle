@@ -1,5 +1,4 @@
 //
-// Created by Rogier on 18/01/2023.
 // The words class which has all playable words and can return a random word in this list
 //
 

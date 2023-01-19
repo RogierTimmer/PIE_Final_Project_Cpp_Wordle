@@ -1,5 +1,5 @@
 //
-// Created by Rogier on 18/01/2023.
+//
 //
 
 #include "Words.h"

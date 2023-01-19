@@ -1,6 +1,6 @@
 //
-// Created by Rogier on 18/01/2023.
 // Is making sure that a game can be played from starting up to winning of a game
+//
 
 #ifndef FINAL_PROJECT_WORDLE_GAME_H
 #define FINAL_PROJECT_WORDLE_GAME_H
@@ -25,8 +25,6 @@ private:
 
 public:
     void fontWordle();                  //makes introduction font
-
-    string getWord();                   //return the word of the current game
 
     void setWord();                     //sets the word of a game and keeps track of which words have already been chosen
 
