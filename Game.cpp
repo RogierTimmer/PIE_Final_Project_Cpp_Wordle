@@ -15,7 +15,7 @@ Board makeBoard() {
     return board;
 }
 
-void Game::fontWordle() {
+void Game::fontWordle() {                                   //makes introduction font
     cout << "    __          __           _ _       \n";
     cout << "    \\ \\        / /          | | |      \n";
     cout << "     \\ \\  /\\  / /__  _ __ __| | | ___  \n";
@@ -26,24 +26,24 @@ void Game::fontWordle() {
     cout << "A wordle game in C++, created by Trui en Frans 2023 \n"; //TODO fix names
 }
 
-string Game::getWord() {
+string Game::getWord() {                                    //chooses a word and returns it
     return word;
 }
 
-char* Game::correctingFunction(string guess, string word, char *emptyArray) { //function should have as input the guess of the user and the final word.
+char* Game::correctingFunction(string guess, string word, char *emptyArray) { //function corrects the input of the user by creating array correction that holds g/r/y
     string userInput = guess;
     string finalWord = word;
 
     int length = 5;
 
-    char char_array_userInput[userInput.length()];
+    char char_array_userInput[userInput.length()];                              //makes a character array from a string
     strcpy(char_array_userInput,userInput.c_str());
 
     char char_array_finalWord[finalWord.length()];
     strcpy(char_array_finalWord,finalWord.c_str());
 
     char copy_word[finalWord.length()];
-    strcpy(copy_word,finalWord.c_str());
+    strcpy(copy_word,finalWord.c_str());                              //is used for knowing what characters are used
 
     int k;
     char g = 'g';
@@ -88,17 +88,17 @@ char* Game::correctingFunction(string guess, string word, char *emptyArray) { //
     return correction;
 }
 
-string Game::inputFunction() {
+string Game::inputFunction() {                                      //is used for the user-input and returns the guess
     string guess;
     cout << "What is your guess?\n";
     cin >> guess;
     return guess;
 }
 
-bool Game::checkingInputFunction(string input) {
+bool Game::checkingInputFunction(string input) {                    //checks the input function and returns if it is valid
     int length = input.length();
 
-    if (length != 5) {
+    if (length != 5) {                                              //checks for number of letters
         cout << "Not the correct amount of letters \n";
         return false;
     }
@@ -141,7 +141,7 @@ void Game::play() {
             cout << "Congratulations, you have guessed the word in " << turn  << " turns!" << "\n";
         }
         turn++;
-        if (turn > 5) {
+        if (turn > 6) {
             run = false;
             cout << "Unfortunately you could not guess the word, the word was: " << word << "\n";
         }
