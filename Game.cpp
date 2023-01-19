@@ -14,7 +14,7 @@ void Game::fontWordle() {                                   //makes introduction
     cout << "       \\  /\\  / (_) | | | (_| | |  __/ \n";
     cout << "        \\/  \\/ \\___/|_|  \\__,_|_|\\___| \n";
     cout << "\n";
-    cout << "A wordle game in C++, created by Trui en Frans 2023 \n"; //TODO fix names
+    cout << "A wordle game in C++, created by Trui en Frans 2023 \n";
 }
 
 string Game::getWord() {                                    //return the word of the current game

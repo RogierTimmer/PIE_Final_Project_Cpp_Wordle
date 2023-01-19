@@ -1,4 +1,4 @@
-// Is responsable for the user-interface of the game
+// Is responsible for the user-interface of the board part of the game
 // Created by Rogier on 18/01/2023.
 //
 
@@ -14,7 +14,7 @@ using namespace std;
 
 class Board {
 private:
-    int DIM_HOR = 5;
+    int DIM_HOR = 5;                //dimension of the board
     int DIM_VER = 6;
     string fields[5*6];             //fields for a 6*5 game board
     int line = 0;                   //keeping track of how many lines have been written to the board
