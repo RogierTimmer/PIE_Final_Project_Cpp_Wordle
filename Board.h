@@ -27,6 +27,8 @@ public:
 
     void setLine(string guess, char* correction);
 
+    void reset();
+
 };
 
 #endif //FINAL_PROJECT_WORDLE_BOARD_H

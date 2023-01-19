@@ -6,8 +6,9 @@
 
 Board::Board() {
     for (int i = 0; i < (DIM_HOR*DIM_VER); i++) {
-        fields[i] = ".";
+        fields[i] = '.';
     }
+    fill_n (corrections, 6*5, 0);
 }
 
 string toFullColor(char colorChar) {
@@ -52,4 +53,12 @@ void Board::setLine(string input, char* correction) {
     }
 
     line++;
+}
+
+void Board::reset() {
+    for (int i = 0; i < (DIM_HOR*DIM_VER); i++) {
+        fields[i] = '.';
+    }
+    line = 0;
+    fill_n (corrections, 6*5, 0);
 }

@@ -6,15 +6,6 @@
 
 using namespace std;
 
-Game::Game() {
-    word = words.getRandomWord();
-}
-
-Board makeBoard() {
-    Board board;
-    return board;
-}
-
 void Game::fontWordle() {                                   //makes introduction font
     cout << "    __          __           _ _       \n";
     cout << "    \\ \\        / /          | | |      \n";
@@ -42,10 +33,9 @@ char* Game::correctingFunction(string guess, string word, char *emptyArray) { //
     char char_array_finalWord[finalWord.length()];
     strcpy(char_array_finalWord,finalWord.c_str());
 
-    char copy_word[finalWord.length()];
-    strcpy(copy_word,finalWord.c_str());                              //is used for knowing what characters are used
+    char copy_word[word.length()];
+    strcpy(copy_word,word.c_str());                              //is used for knowing what characters are used
 
-    int k;
     char g = 'g';
     char y = 'y';
     char r = 'r';
@@ -56,9 +46,9 @@ char* Game::correctingFunction(string guess, string word, char *emptyArray) { //
     for (int  i = 0; i < 5; i++) {
         if (char_array_userInput[i] == char_array_finalWord[i]) { //checks for correct letters on the correct place (green)
             correction[i] = g;
-            copy_word[i] = 0;
+            copy_word[i] = null;
         }
-        k = 0;
+        int k = 0;
         for (int j = 0 ; j < 5; j++) {
             if (char_array_userInput[i] != char_array_finalWord[j]) { //checks for the letters that are not in the word (red)
                 k++;
@@ -75,7 +65,7 @@ char* Game::correctingFunction(string guess, string word, char *emptyArray) { //
             for (int j = 0 ; j < 5; j++) {
                 if (char_array_userInput[i] == copy_word[j]) {
                     correction[i] = y;
-                    copy_word[j] = null;
+                    copy_word[j] = '&';
                     break;
                 }
                 if (j == 4) {
@@ -119,11 +109,11 @@ bool Game::isWinner(char* correction) {
     return true;
 }
 
-void Game::play() {
-    bool run = true;
+void Game::play() {                                                 //initialises the game
+    word = words.getRandomWord();
     board.print();
-    while (run) {
-        string guess;
+    while (turn <= maxTurn) {
+        guess = "aaaaa";
         while (true) {
             guess = inputFunction();
             if (checkingInputFunction(guess)) {
@@ -139,11 +129,13 @@ void Game::play() {
         board.print();
         if (isWinner(corrected)) {
             cout << "Congratulations, you have guessed the word in " << turn  << " turns!" << "\n";
+            return;
         }
         turn++;
-        if (turn > 6) {
-            run = false;
-            cout << "Unfortunately you could not guess the word, the word was: " << word << "\n";
-        }
     }
+    if (turn >= 6) {
+        cout << "Unfortunately you could not guess the word, the word was: " << word << "\n";
+    }
+    board.reset();
+    turn = 1;
 }

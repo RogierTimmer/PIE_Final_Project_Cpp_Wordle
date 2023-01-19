@@ -16,11 +16,11 @@ private:
     Board board;
     string word;
     int turn = 1;
+    int maxTurn = 6;
     Words words;
+    string guess;
 
 public:
-    Game();
-
     void fontWordle();
 
     string getWord();

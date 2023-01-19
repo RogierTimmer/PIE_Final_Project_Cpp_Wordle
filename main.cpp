@@ -8,6 +8,16 @@ using namespace std;
 int main() {
     Game game;
     game.fontWordle();
-    game.play();
-    return 0;
+    while (true) {
+        game.play();
+        string userInput = "?";
+        cout << "Do you want to play another game?\n";
+        while (userInput != "y" && userInput != "n") {
+            cout << "Please fill in 'y' for yes and 'n' for no.\n";
+            cin >> userInput;
+        }
+        if (userInput == "n") {
+            return 0;
+        }
+    }
 }
