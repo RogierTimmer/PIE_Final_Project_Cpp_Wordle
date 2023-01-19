@@ -109,15 +109,20 @@ bool Game::checkingInputFunction(string input) {
     return check;
 }
 
-bool isWinner() {
-
+bool Game::isWinner(char* correction) {
+    for (int i = 0; i < 5; i++) {
+        if (correction[i] != 'g') {
+            return false;
+        }
+    }
+    return true;
 }
 
 void Game::play() {
     bool run = true;
-    cout << board.toString() << "\n";
+    board.print();
     while (run) {
-        string guess = "";
+        string guess;
         while (true) {
             guess = inputFunction();
             if (checkingInputFunction(guess)) {
@@ -126,12 +131,15 @@ void Game::play() {
         }
         char emptyArray[5];
         char* corrected = correctingFunction(guess, word, emptyArray);
-        board.setLine(guess);
-        cout << board.toString() << "\n";
+        board.setLine(guess, corrected);
+        board.print();
+        if (isWinner(corrected)) {
+            cout << "Congratulations, you have guessed the word in " << turn << " turns!" << "\n";
+        }
         turn++;
         if (turn > 5) {
             run = false;
-            cout << "Game Over" << "\n";
+            cout << "Unfortunately you could not guess the word, the word was: " << word << "\n";
         }
     }
 }

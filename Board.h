@@ -17,13 +17,14 @@ private:
     int DIM_VER = 6;
     string fields[5*6];
     int line = 0;
+    char corrections[6*5];
 
 public:
     Board();
 
     string toString();
 
-    void setLine(string guess);
+    void setLine(string guess, char* correction);
 
 };
 
