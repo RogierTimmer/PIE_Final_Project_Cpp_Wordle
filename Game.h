@@ -8,6 +8,7 @@
 #include "Board.cpp"
 #include <iostream>
 #include "Words.h"
+#include <set>
 
 using namespace std;
 
@@ -19,11 +20,15 @@ private:
     int maxTurn = 6;
     Words words;
     string guess;
+    set<string> usedWords = {"aaaaa"};
+
 
 public:
     void fontWordle();
 
     string getWord();
+
+    void setWord();
 
     char* correctingFunction(string guess, char *emptyArray);
 

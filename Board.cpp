@@ -8,7 +8,6 @@ Board::Board() {                                        //gives dots when nothin
     for (int i = 0; i < (DIM_HOR*DIM_VER); i++) {
         fields[i] = '.';
     }
-    fill_n (corrections, 6*5, 0);
 }
 
 string toFullColor(char colorChar) {                    //converts r/g/y into strings color.hpp understands

@@ -21,6 +21,15 @@ string Game::getWord() {                                    //chooses a word and
     return word;
 }
 
+void Game::setWord() {
+    string attempt = "aaaaa";
+    while(const bool is_in = usedWords.count(attempt) > 0) {
+        attempt = words.getRandomWord();
+    }
+    word = attempt;
+    usedWords.insert(word);
+}
+
 char* Game::correctingFunction(string guess, char *emptyArray) { //function corrects the input of the user by creating array correction that holds g/r/y
     string userInput = guess;
 
@@ -109,7 +118,7 @@ bool Game::isWinner(char* correction) {                             //checks whe
 }
 
 void Game::play() {                                                 //initialises the game
-    word = words.getRandomWord();
+    setWord();
     board.print();
     while (turn <= maxTurn) {
         guess = "aaaaa";
