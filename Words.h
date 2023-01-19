@@ -10,12 +10,14 @@
 #include <vector>
 #include <windows.h>
 #include <random>
+#include <set>
 
 using namespace std;
 
 class Words {
 private:
     vector<string> words;
+    set<string> setWords;
 
 public:
     Words();
@@ -24,7 +26,7 @@ public:
 
     string getWord(int i);
 
-    vector<string> getWords();
+    set<string> getWords();
 
     string getRandomWord();
 };

@@ -40,6 +40,7 @@ void Words::importWords() {
     while (!file.eof()) {
         getline(file, line);
         words.push_back(line);
+        setWords.insert(line);
     }
 
     file.close();
@@ -54,8 +55,8 @@ string Words::getWord(int i) {
     }
 }
 
-vector<string> Words::getWords() {
-    return words;
+set<string> Words::getWords() {
+    return setWords;
 }
 
 string Words::getRandomWord() {

@@ -45,7 +45,6 @@ void Board::setLine(string input, char* correction) {
     strcpy(charArray,input.c_str());
 
     for (int i = 0; i < DIM_HOR; i++) {
-        cout << correction[i];
         corrections[line * (DIM_HOR) + i] = correction[i];
     }
     for(int i=0 ; i<input.length() ; i++) {

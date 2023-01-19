@@ -7,7 +7,7 @@
 using namespace std;
 
 Game::Game() {
-    this->word = words.getRandomWord();
+    word = words.getRandomWord();
 }
 
 Board makeBoard() {
@@ -33,7 +33,6 @@ string Game::getWord() {
 char* Game::correctingFunction(string guess, string word, char *emptyArray) { //function should have as input the guess of the user and the final word.
     string userInput = guess;
     string finalWord = word;
-
 
     int length = 5;
 
@@ -91,9 +90,8 @@ char* Game::correctingFunction(string guess, string word, char *emptyArray) { //
 
 string Game::inputFunction() {
     string guess;
-    cout << "Guess: ";
+    cout << "What is your guess?\n";
     cin >> guess;
-
     return guess;
 }
 
@@ -105,13 +103,11 @@ bool Game::checkingInputFunction(string input) {
         return false;
     }
 
-    for (int i = 0; i < words.getWords().size(); i++) {
-        if (input == words.getWord(i)) {
-            return true;
-        }
+    const bool is_in = words.getWords().count(input) > 0;
+    if (!is_in) {
+        cout << "Please enter a word that exists \n";
     }
-    cout << "Please enter a word that exists \n";
-    return false;
+    return is_in;
 }
 
 bool Game::isWinner(char* correction) {
@@ -136,7 +132,7 @@ void Game::play() {
         }
         char emptyArray[6];
         char* corrected = correctingFunction(guess, word, emptyArray);
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             cout << corrected[i];
         }
         board.setLine(guess, corrected);
