@@ -11,7 +11,7 @@ Board::Board() {                                        //gives dots when nothin
     fill_n (corrections, 6*5, 0);
 }
 
-string toFullColor(char colorChar) {                    //converts 
+string toFullColor(char colorChar) {                    //converts r/g/y into strings 
     if (colorChar == 'y') {
         return "yellow";
     }
