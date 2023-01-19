@@ -18,6 +18,10 @@ The code can be adapted by eg. modifying the valid-words.csv file, in order to g
 the game can be adapted to support 6, 7 or more letter words. Another improvement can be a list with words that are valid for...
 final outcome words and a list for words that are valid as input-words.
 
+# Dependencies
+The code relies on color.hpp in order to make the colored text in the terminal. Furthermore standard libraries included with...
+C++ were used like vector and iostream.
+
 # Final note
 This game is based on the popular game wordle (https://www.nytimes.com/games/wordle/index.html) by Josh Wardle. We as...
 house mates used to play this everyday, thus the inspiration for this final project.

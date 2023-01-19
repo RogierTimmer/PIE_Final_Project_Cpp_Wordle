@@ -23,7 +23,7 @@ string toFullColor(char colorChar) {                    //converts r/g/y into st
     return "white";
 }
 
-void Board::print() {
+void Board::print() {                                   //prints the board after a guess is made in color
     string s;
     cout << "+---+---+---+---+---+\n";
     for (int i = 0; i < DIM_VER; i++) {
@@ -40,7 +40,7 @@ void Board::print() {
     }
 }
 
-void Board::setLine(string input, char* correction) {
+void Board::setLine(string input, char* correction) {      //when a word is guessed, it overwrites the dots with the answer guessed and the correction
     char charArray[input.length()];
     strcpy(charArray,input.c_str());
 
@@ -54,7 +54,7 @@ void Board::setLine(string input, char* correction) {
     line++;
 }
 
-void Board::reset() {
+void Board::reset() {                                   //resets the board if the user want to play another game
     for (int i = 0; i < (DIM_HOR*DIM_VER); i++) {
         fields[i] = '.';
     }

@@ -8,7 +8,7 @@ using namespace std;
 int main() {
     Game game;
     game.fontWordle();
-    while (true) {
+    while (true) {                          //ask if the user wants to play another game
         game.play();
         string userInput = "?";
         cout << "Do you want to play another game?\n";

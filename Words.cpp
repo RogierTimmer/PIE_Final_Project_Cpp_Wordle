@@ -4,28 +4,28 @@
 
 #include "Words.h"
 
-Words::Words() {
+Words::Words() {                            //imports the words.h file
     importWords();
 }
 
-string getExePath() {
+string getExePath() {                       //gives the final path
     char result[ MAX_PATH ];
     return string( result, GetModuleFileName( NULL, result, MAX_PATH ) );
 }
 
-string getProjectRoot() {
+string getProjectRoot() {                   //finds where the project is located
     string path = getExePath();
     path = path.substr(0, path.find_last_of("\\"));
     path = path.substr(0, path.find_last_of("\\"));
     return path;
 }
 
-string getValidWordsFilename() {
+string getValidWordsFilename() {                //gives the location of the csv file
     string projectRoot = getProjectRoot();
     return projectRoot + "\\valid-words.csv";
 }
 
-void Words::importWords() {
+void Words::importWords() {                     //imports the csv file and checks if it is there
     fstream file;
 
     file.open(getValidWordsFilename());
@@ -46,7 +46,7 @@ void Words::importWords() {
     file.close();
 }
 
-string Words::getWord(int i) {
+string Words::getWord(int i) {                  //gets a word form randomWord
     if (i < words.size()) {
         return words[i];
     }
@@ -59,7 +59,7 @@ set<string> Words::getWords() {
     return setWords;
 }
 
-string Words::getRandomWord() {
+string Words::getRandomWord() {                 //chooses a random word from the list
     static random_device rd;
     static mt19937 rng{rd()};
     static std::uniform_int_distribution<int> uid(0,words.size());

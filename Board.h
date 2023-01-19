@@ -1,4 +1,4 @@
-//
+// Is responsable for the user-interface of the game
 // Created by Rogier on 18/01/2023.
 //
 
