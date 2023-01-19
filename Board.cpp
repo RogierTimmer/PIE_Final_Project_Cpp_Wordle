@@ -4,14 +4,14 @@
 
 #include "Board.h"
 
-Board::Board() {
+Board::Board() {                                        //gives dots when nothing is filled in yet
     for (int i = 0; i < (DIM_HOR*DIM_VER); i++) {
         fields[i] = '.';
     }
     fill_n (corrections, 6*5, 0);
 }
 
-string toFullColor(char colorChar) {
+string toFullColor(char colorChar) {                    //converts 
     if (colorChar == 'y') {
         return "yellow";
     }

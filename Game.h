@@ -25,7 +25,7 @@ public:
 
     string getWord();
 
-    char* correctingFunction(string guess, string word, char *emptyArray);
+    char* correctingFunction(string guess, char *emptyArray);
 
     static string inputFunction();
 

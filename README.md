@@ -15,7 +15,8 @@ and the game can be played again.
 
 # Adapting the code
 The code can be adapted by eg. modifying the valid-words.csv file, in order to get another language. With a bit more work,
-the game can be adapted to support 6, 7 or more letter words.
+the game can be adapted to support 6, 7 or more letter words. Another improvement can be a list with words that are valid for...
+final outcome words and a list for words that are valid as input-words.
 
 # Final note
 This game is based on the popular game wordle (https://www.nytimes.com/games/wordle/index.html) by Josh Wardle. We as...

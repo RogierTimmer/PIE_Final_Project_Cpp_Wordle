@@ -21,17 +21,16 @@ string Game::getWord() {                                    //chooses a word and
     return word;
 }
 
-char* Game::correctingFunction(string guess, string word, char *emptyArray) { //function corrects the input of the user by creating array correction that holds g/r/y
+char* Game::correctingFunction(string guess, char *emptyArray) { //function corrects the input of the user by creating array correction that holds g/r/y
     string userInput = guess;
-    string finalWord = word;
 
     int length = 5;
 
     char char_array_userInput[userInput.length()];                              //makes a character array from a string
     strcpy(char_array_userInput,userInput.c_str());
 
-    char char_array_finalWord[finalWord.length()];
-    strcpy(char_array_finalWord,finalWord.c_str());
+    char char_array_finalWord[word.length()];
+    strcpy(char_array_finalWord,word.c_str());
 
     char copy_word[word.length()];
     strcpy(copy_word,word.c_str());                              //is used for knowing what characters are used
@@ -93,14 +92,14 @@ bool Game::checkingInputFunction(string input) {                    //checks the
         return false;
     }
 
-    const bool is_in = words.getWords().count(input) > 0;
+    const bool is_in = words.getWords().count(input) > 0;         //checks if the word is in the list
     if (!is_in) {
         cout << "Please enter a word that exists \n";
     }
     return is_in;
 }
 
-bool Game::isWinner(char* correction) {
+bool Game::isWinner(char* correction) {                             //checks when the game is won
     for (int i = 0; i < 5; i++) {
         if (correction[i] != 'g') {
             return false;
@@ -120,11 +119,8 @@ void Game::play() {                                                 //initialise
                 break;
             }
         }
-        char emptyArray[6];
-        char* corrected = correctingFunction(guess, word, emptyArray);
-        for (int i = 0; i < 5; i++) {
-            cout << corrected[i];
-        }
+        char emptyArray[6] = {0,0,0,0,0,'\0'};
+        char* corrected = correctingFunction(guess, emptyArray);
         board.setLine(guess, corrected);
         board.print();
         if (isWinner(corrected)) {
