@@ -29,6 +29,8 @@ public:
 
     bool checkingInputFunction(string input);
 
+    bool isWinner(char* correction);
+
     void play();
 };
 

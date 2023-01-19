@@ -109,6 +109,10 @@ bool Game::checkingInputFunction(string input) {
     return check;
 }
 
+bool isWinner() {
+
+}
+
 void Game::play() {
     bool run = true;
     cout << board.toString() << "\n";
