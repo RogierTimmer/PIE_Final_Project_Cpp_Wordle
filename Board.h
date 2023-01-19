@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <cstring>
+#include "color.hpp"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ private:
 public:
     Board();
 
-    string toString();
+    void print();
 
     void setLine(string guess, char* correction);
 

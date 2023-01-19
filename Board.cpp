@@ -10,17 +10,34 @@ Board::Board() {
     }
 }
 
-string Board::toString() {
+string toFullColor(char colorChar) {
+    if (colorChar == 'y') {
+        return "yellow";
+    }
+    else if (colorChar == 'g') {
+        return "green";
+    }
+    else if (colorChar == 'r') {
+        return "red";
+    }
+    return "white";
+}
+
+void Board::print() {
     string s;
-    s += "+---+---+---+---+---+\n";
+    cout << "+---+---+---+---+---+\n";
     for (int i = 0; i < DIM_VER; i++) {
         for (int j = 0; j < DIM_HOR; j++) {
-            s += "| " + fields[i * (DIM_HOR) + j] + " ";
+            cout << "| ";
+
+            string fullColor = toFullColor(corrections[i * (DIM_HOR) + j]);
+            cout << dye::colorize(fields[i * (DIM_HOR) + j], fullColor);
+
+            cout << " ";
         }
-        s += "|\n";
-        s += "+---+---+---+---+---+\n";
+        cout << "|\n";
+        cout <<  "+---+---+---+---+---+\n";
     }
-    return s;
 }
 
 void Board::setLine(string input, char* correction) {
@@ -34,5 +51,6 @@ void Board::setLine(string input, char* correction) {
     for(int i=0 ; i<input.length() ; i++) {
         fields[line * (DIM_HOR) + i] = charArray[i];
     }
+
     line++;
 }
