@@ -16,18 +16,20 @@ class Board {
 private:
     int DIM_HOR = 5;
     int DIM_VER = 6;
-    string fields[5*6];
-    int line = 0;
-    char corrections[6*5];
+    string fields[5*6];             //fields for a 6*5 game board
+    int line = 0;                   //keeping track of how many lines have been written to the board
+    char corrections[6*5];          //keeping track of the colors of the letters
 
 public:
-    Board();
+    Board();                                        //constructor which fills the fields with dots
 
-    void print();
+    string toFullColor(char colorChar);             //converts r/g/y into strings color.hpp understands
 
-    void setLine(string guess, char* correction);
+    void print();                                   //prints the board to the command window with letters in green, red or yellow
 
-    void reset();
+    void setLine(string guess, char* correction);   //when a guess is made, it overwrites the dots with the answer guessed and the correction, so it can be printed
+
+    void reset();                                   //resets the board if the user want to play another game
 
 };
 

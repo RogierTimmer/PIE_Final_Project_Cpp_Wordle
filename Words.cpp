@@ -46,7 +46,7 @@ void Words::importWords() {                     //imports the csv file and check
     file.close();
 }
 
-string Words::getWord(int i) {                  //gets a word form randomWord
+string Words::getWord(int i) {                  //gets a word with index i out of the vector
     if (i < words.size()) {
         return words[i];
     }
@@ -55,7 +55,7 @@ string Words::getWord(int i) {                  //gets a word form randomWord
     }
 }
 
-set<string> Words::getWords() {
+set<string> Words::getWords() {                 //return the set of words, so one can check if a word is in this list
     return setWords;
 }
 

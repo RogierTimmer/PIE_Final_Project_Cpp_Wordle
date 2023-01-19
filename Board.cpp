@@ -4,13 +4,13 @@
 
 #include "Board.h"
 
-Board::Board() {                                        //gives dots when nothing is filled in yet
+Board::Board() {                                        //constructor which fills the fields with dots
     for (int i = 0; i < (DIM_HOR*DIM_VER); i++) {
         fields[i] = '.';
     }
 }
 
-string toFullColor(char colorChar) {                    //converts r/g/y into strings color.hpp understands
+string Board::toFullColor(char colorChar) {              //converts r/g/y into strings color.hpp understands
     if (colorChar == 'y') {
         return "yellow";
     }
@@ -23,7 +23,7 @@ string toFullColor(char colorChar) {                    //converts r/g/y into st
     return "white";
 }
 
-void Board::print() {                                   //prints the board after a guess is made in color
+void Board::print() {                                   //prints the board to the command window with letters in green, red or yellow
     string s;
     cout << "+---+---+---+---+---+\n";
     for (int i = 0; i < DIM_VER; i++) {
@@ -40,7 +40,7 @@ void Board::print() {                                   //prints the board after
     }
 }
 
-void Board::setLine(string input, char* correction) {      //when a word is guessed, it overwrites the dots with the answer guessed and the correction
+void Board::setLine(string input, char* correction) {      //when a guess is made, it overwrites the dots with the answer guessed and the correction, so it can be printed
     char charArray[input.length()];
     strcpy(charArray,input.c_str());
 

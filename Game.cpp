@@ -17,11 +17,11 @@ void Game::fontWordle() {                                   //makes introduction
     cout << "A wordle game in C++, created by Trui en Frans 2023 \n"; //TODO fix names
 }
 
-string Game::getWord() {                                    //chooses a word and returns it
+string Game::getWord() {                                    //return the word of the current game
     return word;
 }
 
-void Game::setWord() {
+void Game::setWord() {                                      //sets the word of a game and keeps track of which words have already been chosen
     string attempt = "aaaaa";
     while(const bool is_in = usedWords.count(attempt) > 0) {
         attempt = words.getRandomWord();
@@ -117,8 +117,11 @@ bool Game::isWinner(char* correction) {                             //checks whe
     return true;
 }
 
-void Game::play() {                                                 //initialises the game
+void Game::play(bool developMode) {                                                 //initialises the game
     setWord();
+    if (developMode) {
+        cout << word << "\n";
+    }
     board.print();
     while (turn <= maxTurn) {
         guess = "aaaaa";
