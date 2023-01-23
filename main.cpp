@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool developMode = false;
+bool developMode = true;
 
 int main() {
     Game game;                              //create an instance of the Game class

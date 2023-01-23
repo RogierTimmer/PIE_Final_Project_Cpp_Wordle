@@ -133,7 +133,7 @@ void Game::play(bool developMode) {                                             
         board.print();
         if (isWinner(corrected)) {
             cout << "Congratulations, you have guessed the word in " << turn  << " turns!" << "\n";
-            return;
+            break;
         }
         turn++;
     }
